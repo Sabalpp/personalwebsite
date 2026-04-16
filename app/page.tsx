@@ -199,7 +199,7 @@ export default function Home() {
           </ScrollReveal>
           <ScrollReveal delay={0.05}>
             <h2 className="font-display mt-8 max-w-4xl text-5xl font-bold uppercase leading-[0.92] tracking-[-0.04em] text-white md:text-7xl">
-              Hey, I&apos;m Sabal. Aspiring founder in waiting.
+              Hey, I&apos;m Sabal. A founder in waiting.
             </h2>
           </ScrollReveal>
 
