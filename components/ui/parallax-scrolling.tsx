@@ -1,14 +1,43 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import Lenis from "@studio-freight/lenis";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
+declare global {
+  interface Window {
+    __lenis?: Lenis;
+  }
+}
+
 export function ParallaxHero() {
   const parallaxRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.__lenis) return;
+
+    const lenis = new Lenis({
+      duration: 1.1,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    });
+    window.__lenis = lenis;
+
+    lenis.on("scroll", ScrollTrigger.update);
+    const tick = (time: number) => lenis.raf(time * 1000);
+    gsap.ticker.add(tick);
+    gsap.ticker.lagSmoothing(0);
+
+    return () => {
+      gsap.ticker.remove(tick);
+      lenis.destroy();
+      window.__lenis = undefined;
+    };
+  }, []);
 
   useGSAP(
     () => {
@@ -21,7 +50,7 @@ export function ParallaxHero() {
           trigger: triggerElement,
           start: "0% 0%",
           end: "100% 0%",
-          scrub: 0,
+          scrub: 1,
         },
       });
 

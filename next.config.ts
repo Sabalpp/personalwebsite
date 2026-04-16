@@ -18,6 +18,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "encrypted-tbn2.gstatic.com" },
       { protocol: "https", hostname: "encrypted-tbn3.gstatic.com" },
       { protocol: "https", hostname: "cdn.prod.website-files.com" },
+      { protocol: "https", hostname: "img2.animatetimes.com" },
     ],
   },
 };

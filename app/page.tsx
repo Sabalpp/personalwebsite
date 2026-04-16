@@ -97,7 +97,7 @@ const manga = [
   },
   {
     title: "Dr. Stone",
-    url: "https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/b98416-L44f4idEGMAX.jpg",
+    url: "https://img2.animatetimes.com/2019/08/5d47b036595f0_5761d447bc2336fd52c896249fc37679.jpg",
   },
   {
     title: "Omniscient Reader",
@@ -248,7 +248,16 @@ export default function Home() {
 
         <div className="relative mx-auto max-w-5xl px-6 md:px-12">
           <ScrollReveal>
-            <h2 className="font-display max-w-3xl text-5xl font-bold uppercase leading-[0.92] tracking-[-0.04em] text-white md:text-7xl">
+            <h2
+              className="font-display max-w-3xl text-5xl font-bold uppercase leading-[0.92] tracking-[-0.04em] md:text-7xl"
+              style={{
+                background: "linear-gradient(120deg, #ff4d3d 0%, #ff8a3d 40%, #ffc84a 100%)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                color: "transparent",
+              }}
+            >
               Interests
             </h2>
           </ScrollReveal>
@@ -318,18 +327,18 @@ export default function Home() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <span className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-white/40">
+                    <span className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-white/40 transition group-hover:text-[var(--accent-warm)]">
                       {p.year}
                     </span>
                     <div>
-                      <p className="font-display text-2xl font-bold uppercase tracking-[-0.02em] text-white md:text-3xl">
+                      <p className="font-display text-2xl font-bold uppercase tracking-[-0.02em] text-white transition group-hover:text-[var(--accent)] md:text-3xl">
                         {p.title}
                       </p>
                       <p className="mt-2 text-sm text-white/50 md:text-base">
                         {p.desc}
                       </p>
                     </div>
-                    <span className="text-white/30 transition group-hover:translate-x-1 group-hover:text-white/80">
+                    <span className="text-white/30 transition group-hover:translate-x-1 group-hover:text-[var(--accent)]">
                       →
                     </span>
                   </a>

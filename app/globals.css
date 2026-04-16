@@ -5,6 +5,16 @@
   --foreground: #f5f1eb;
   --muted: #c8bfb4;
   --ink: #f2f1ed;
+  --accent: #ff4d3d;
+  --accent-warm: #ffb84a;
+}
+
+.text-accent-gradient {
+  background: linear-gradient(120deg, #ff4d3d 0%, #ff8a3d 40%, #ffc84a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 * {
